@@ -6,11 +6,11 @@
 </head>
 <body>
 	<h1 th:text="${titulo}"></h1>
-	<form th:action="@{/form}" method="POST">
+	<form th:action="@{/form}" th:object="${usuario}" method="POST">
 		<div>
 			<label for="username">Usuario:</label>
 			<div>
-				<input type="text" name="username" id="username" th:value="${usuario.username}" />
+				<input type="text" id="username" th:field="*{username}"/>
 			</div>
 			<div th:if="${error != null && error.containsKey('username')}" th:text="${error.username}"></div>
 		</div>
@@ -18,7 +18,7 @@
 		<div>
 			<label for="password">Contraseña:</label>
 			<div>
-				<input type="password" name="password" id="password"  />
+				<input type="password" id="password" th:field="*{password}" />
 			</div>
 			<div th:if="${error != null && error.containsKey('password')}" th:text="${error.password}"></div>
 		</div>
@@ -26,7 +26,7 @@
 		<div>
 			<label for="email">Email:</label>
 			<div>
-				<input type="text" name="email" id="email"  th:value="${usuario.email}" />
+				<input type="text" id="email"  th:field="*{email}" />
 			</div>
 			<div th:if="${error != null && error.containsKey('email')}" th:text="${error.email}"></div>
 		</div>
