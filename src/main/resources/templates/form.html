@@ -12,7 +12,14 @@
 			<div>
 				<input type="text" id="username" th:field="*{username}"/>
 			</div>
+			<!-- 
+			forma1 para validar errores:
 			<div th:if="${error != null && error.containsKey('username')}" th:text="${error.username}"></div>
+			 -->
+			 <!-- 
+			forma2 para validar errores con thymeleaf y mensajes propios de spring:
+			 -->
+			<div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
 		</div>
 
 		<div>
@@ -20,7 +27,7 @@
 			<div>
 				<input type="password" id="password" th:field="*{password}" />
 			</div>
-			<div th:if="${error != null && error.containsKey('password')}" th:text="${error.password}"></div>
+			<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
 		</div>
 
 		<div>
@@ -28,7 +35,7 @@
 			<div>
 				<input type="text" id="email"  th:field="*{email}" />
 			</div>
-			<div th:if="${error != null && error.containsKey('email')}" th:text="${error.email}"></div>
+			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 		</div>
 
 		<div>
