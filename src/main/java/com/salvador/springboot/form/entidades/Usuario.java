@@ -1,18 +1,27 @@
 package com.salvador.springboot.form.entidades;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 public class Usuario {
 	private String identificador;
-	@NotEmpty
+	
+	@NotEmpty(message = "El nombre no puede ser vacío")	
 	private String nombre;	
-	@NotEmpty
+	
+	@NotEmpty(message = "El apellido no puede ser vacío")
 	private String apellido;	
-	@NotEmpty
+	
+	@NotEmpty(message = "El username no puede ser vacío")
+	@Size(min = 3, max=15)
 	private String username;
-	@NotEmpty
+	
+	@NotEmpty(message = "El password no puede ser vacío")
 	private String password;
-	@NotEmpty
+	
+	@NotEmpty(message = "El correo no puede ser vacío")
+	@Email(message="Revise el formato del correo")
 	private String email;
 
 	public String getUsername() {
