@@ -1,10 +1,14 @@
 package com.salvador.springboot.form.controladores;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -27,6 +31,12 @@ public class FormControl {
 		model.addAttribute("usuario", usuario);
 				
 		return "form";
+	}
+	
+	@ModelAttribute("paises")
+	public List<String> listarPaises(){
+		return Arrays.asList("El Salvador", "Mexico", "Guatemala", "Honduras", "Brasil", "Argentina");
+		
 	}
 
 	/*

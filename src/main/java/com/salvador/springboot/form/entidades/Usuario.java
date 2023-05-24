@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
-	@Pattern(regexp = "[0-9]{3}[.][//d]{3}[.][//d]{3}[-][A-Z]{1}")
+	@Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-[A-Za-z]")
 	private String identificador;
 	
 	@NotBlank
@@ -45,6 +45,10 @@ public class Usuario {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Past
 	private Date fechaNacimiento;	
+	
+	
+	@NotEmpty
+	private String pais;
 
 	public String getUsername() {
 		return username;
@@ -108,6 +112,14 @@ public class Usuario {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 	
 
