@@ -4,6 +4,7 @@ package com.salvador.springboot.form.controladores;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.salvador.springboot.form.entidades.Pais;
 import com.salvador.springboot.form.entidades.Usuario;
+import com.salvador.springboot.form.servicios.IPais;
 
 import jakarta.validation.Valid;
 
@@ -22,6 +24,9 @@ import jakarta.validation.Valid;
 @SessionAttributes("usuario")
 public class FormControl {
 
+	@Autowired
+	private IPais paisServicio;
+	
 	@GetMapping("/form")
 	public String verForm(Model model) {
 		model.addAttribute("titulo", "Formulario inicio de sesión");
@@ -43,14 +48,7 @@ public class FormControl {
 	
 	@ModelAttribute("listaPaises")
 	public List<Pais> listarPaisesObjetos(){
-		return Arrays.asList(
-				new Pais(1, "SV", "El Salvador"),
-				new Pais(2, "GT", "Guatemala"),
-				new Pais(3, "HN", "Honduras"),
-				new Pais(4, "CR", "Costa Rica"),
-				new Pais(5, "BEL", "Belice")			
-				);
-				
+		return paisServicio.listarPaises();
 		
 	}
 
