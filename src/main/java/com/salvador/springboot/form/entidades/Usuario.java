@@ -1,16 +1,28 @@
 package com.salvador.springboot.form.entidades;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
+	@Pattern(regexp = "[0-9]{3}[.][//d]{3}[.][//d]{3}[-][A-Z]{1}")
 	private String identificador;
 	
-	@NotEmpty(message = "El nombre no puede ser vacío")	
+	@NotBlank
 	private String nombre;	
 	
-	@NotEmpty(message = "El apellido no puede ser vacío")
+	@NotEmpty
+	@Pattern(regexp = "[A-Za-z]+", message="El apellido solo debe llevar letras")
 	private String apellido;	
 	
 	@NotEmpty(message = "El username no puede ser vacío")
@@ -23,6 +35,16 @@ public class Usuario {
 	@NotEmpty(message = "El correo no puede ser vacío")
 	@Email(message="Revise el formato del correo")
 	private String email;
+	
+	@NotNull
+	@Min(5)
+	@Max(5000)
+	private Integer cuenta;
+	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Past
+	private Date fechaNacimiento;	
 
 	public String getUsername() {
 		return username;
@@ -70,6 +92,22 @@ public class Usuario {
 
 	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
+	}
+
+	public Integer getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	
 
