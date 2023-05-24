@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.salvador.springboot.form.entidades.Pais;
 import com.salvador.springboot.form.entidades.Usuario;
 
 import jakarta.validation.Valid;
@@ -36,6 +37,20 @@ public class FormControl {
 	@ModelAttribute("paises")
 	public List<String> listarPaises(){
 		return Arrays.asList("El Salvador", "Mexico", "Guatemala", "Honduras", "Brasil", "Argentina");
+		
+	}
+	
+	
+	@ModelAttribute("listaPaises")
+	public List<Pais> listarPaisesObjetos(){
+		return Arrays.asList(
+				new Pais(1, "SV", "El Salvador"),
+				new Pais(2, "GT", "Guatemala"),
+				new Pais(3, "HN", "Honduras"),
+				new Pais(4, "CR", "Costa Rica"),
+				new Pais(5, "BEL", "Belice")			
+				);
+				
 		
 	}
 

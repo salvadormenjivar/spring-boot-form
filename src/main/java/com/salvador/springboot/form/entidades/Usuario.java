@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -46,9 +47,8 @@ public class Usuario {
 	@Past
 	private Date fechaNacimiento;	
 	
-	
-	@NotEmpty
-	private String pais;
+	@Valid
+	private Pais pais;
 
 	public String getUsername() {
 		return username;
@@ -114,11 +114,11 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public String getPais() {
+	public Pais getPais() {
 		return pais;
 	}
 
-	public void setPais(String pais) {
+	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
 	
