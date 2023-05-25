@@ -52,7 +52,11 @@ public class FormControl {
 	@ModelAttribute("paises")
 	public List<String> listarPaises() {
 		return Arrays.asList("El Salvador", "Mexico", "Guatemala", "Honduras", "Brasil", "Argentina");
-
+	}
+	
+	@ModelAttribute("rolesString")
+	public List<String> listarRoles(){
+		return Arrays.asList("MODERADOR", "ADMINISTRADOR", "INVITADO");
 	}
 
 	@ModelAttribute("listaPaises")
