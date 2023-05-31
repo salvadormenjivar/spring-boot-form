@@ -13,6 +13,7 @@ Este proyecto esta creado con Spring Boot y se enfoca en:
  el backend
 * Uso de bootstrap 5 para el diseño de las pantallas
 * Se agregan interceptores preHandle, PosHandle y afterCompletion.
+* Se utilizan fragmentos en Thymeleaf para reutilización de componentes del frontend
 
 ## Formulario inicio
 ![Formulario](imagen_form.png)
