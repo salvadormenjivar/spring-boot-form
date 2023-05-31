@@ -51,7 +51,12 @@ public class Usuario {
 	private Pais pais;
 	
 	@NotEmpty
-	private List<String> roles;	
+	private List<Rol> roles;
+	
+	@NotEmpty
+	private String genero;
+	
+	private Boolean activo;
 
 	public String getUsername() {
 		return username;
@@ -125,12 +130,28 @@ public class Usuario {
 		this.pais = pais;
 	}
 
-	public List<String> getRoles() {
+	public List<Rol> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<String> roles) {
+	public void setRoles(List<Rol> roles) {
 		this.roles = roles;
+	}
+
+	public Boolean getActivo() {		
+		return activo;
+	}
+
+	public void setActivo(Boolean activo) {
+		this.activo = activo;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 	
 
