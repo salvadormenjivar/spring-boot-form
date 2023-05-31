@@ -12,9 +12,11 @@ Este proyecto esta creado con Spring Boot y se enfoca en:
 * Se utiliza application.properties y messages.properties para el manejo de mensajes en las validaciones en 
  el backend
 * Uso de bootstrap 5 para el diseño de las pantallas
-
+## Formulario inicio
 ![Formulario](imagen_form.png)
 
+## Resultados
 ![Formulario](imagen_resultados.png)
 
+## Validaciones
 ![Formulario](imagen_validaciones.png)
